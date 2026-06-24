@@ -894,6 +894,11 @@
       <div class="slide-bg" style="background-image:url('Project/Tate Ave_Wantirna/Image/image.jpg')"></div>
     </div>
 
+    <!-- Slide 6: The Pippin Glen Waverley -->
+    <div class="slide" id="slide-5">
+      <div class="slide-bg" style="background-image:url('Project/The Pippin_Glen Waverley/Pippin V1.jpg')"></div>
+    </div>
+
     <!-- Hero text (updates with slide) -->
     <div class="hero-content">
       <p class="hero-label" id="heroLabel">Residential · Preston VIC</p>
@@ -909,6 +914,7 @@
         <div class="dot" onclick="goSlide(2)"></div>
         <div class="dot" onclick="goSlide(3)"></div>
         <div class="dot" onclick="goSlide(4)"></div>
+        <div class="dot" onclick="goSlide(5)"></div>
       </div>
       <div class="hero-arrows">
         <button class="arrow-btn" onclick="prevSlide()" aria-label="Previous">
@@ -1058,6 +1064,25 @@
               <p class="proj-meta">Residential · New Build</p>
               <h3 class="proj-name">Tate Ave<br>Wantirna</h3>
               <p class="proj-loc">Wantirna, VIC</p>
+            </div>
+            <a href="#contact" class="proj-link">
+              View Project
+              <span class="proj-link-arrow"></span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Row 6 (reversed) -->
+        <div class="project-row" data-reveal data-delay="1">
+          <div class="project-img-wrap">
+            <img src="Project/The Pippin_Glen Waverley/Pippin V1.jpg"
+                 alt="The Pippin Glen Waverley" loading="lazy" />
+          </div>
+          <div class="project-info">
+            <div>
+              <p class="proj-meta">Residential · New Build</p>
+              <h3 class="proj-name">The Pippin<br>Glen Waverley</h3>
+              <p class="proj-loc">Glen Waverley, VIC</p>
             </div>
             <a href="#contact" class="proj-link">
               View Project
@@ -1378,6 +1403,7 @@
       { label: 'Residential · Bayswater VIC',  title: 'Bona Vista\nBayswater' },
       { label: 'Commercial · Box Hill VIC',    title: 'Ellingworth\nBoxhill' },
       { label: 'Residential · Wantirna VIC',   title: 'Tate Ave\nWantirna' },
+      { label: 'Residential · Glen Waverley VIC', title: 'The Pippin\nGlen Waverley' },
     ];
     let current = 0;
     let timer;
