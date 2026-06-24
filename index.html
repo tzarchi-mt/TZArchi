@@ -734,6 +734,33 @@
     .cursor-ring.large { width: 80px; height: 80px; border-color: rgba(255,255,255,.12); }
 
     /* ─────────────────────────────────────────
+       PROJECT MINI GALLERY
+    ───────────────────────────────────────── */
+    .gallery-wrap { position: relative; }
+    .gallery-wrap .gallery-img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; object-fit: cover;
+      opacity: 0;
+      transition: opacity .9s ease, transform 1s var(--ease), filter .6s;
+      filter: grayscale(15%);
+    }
+    .gallery-wrap .gallery-img.active { opacity: 1; }
+    .project-row:hover .gallery-wrap .gallery-img.active {
+      transform: scale(1.04); filter: grayscale(0%);
+    }
+    .gallery-dots {
+      position: absolute; bottom: .9rem; left: 50%;
+      transform: translateX(-50%);
+      display: flex; gap: .5rem; z-index: 3;
+    }
+    .gdot {
+      width: 18px; height: 1px;
+      background: rgba(255,255,255,.35); cursor: pointer;
+      transition: background .3s, width .3s;
+    }
+    .gdot.active { background: var(--white); width: 30px; }
+
+    /* ─────────────────────────────────────────
        KINETIC TEXT — hero words
     ───────────────────────────────────────── */
     .hero-word {
@@ -871,7 +898,7 @@
 
     <!-- Slide 1: Stott St Preston -->
     <div class="slide active" id="slide-0">
-      <div class="slide-bg" style="background-image:url('https://images.squarespace-cdn.com/content/v1/5f26780bade9983a003077b1/1624865744666-6KB01D5BDBESY7TNMB3Z/Entry4_Char_1+-+Photo.jpg')"></div>
+      <div class="slide-bg" style="background-image:url('Project/Stott St_Preston/images/Stott-V1.jpg')"></div>
     </div>
 
     <!-- Slide 2: Orchard House Eltham -->
@@ -980,7 +1007,7 @@
         <!-- Row 1 -->
         <div class="project-row" data-reveal>
           <div class="project-img-wrap">
-            <img src="https://images.squarespace-cdn.com/content/v1/5f26780bade9983a003077b1/1624865744666-6KB01D5BDBESY7TNMB3Z/Entry4_Char_1+-+Photo.jpg"
+            <img src="Project/Stott St_Preston/images/Stott-V1.jpg"
                  alt="Stott St Preston" loading="lazy" />
           </div>
           <div class="project-info">
@@ -1017,9 +1044,15 @@
 
         <!-- Row 3 -->
         <div class="project-row" data-reveal>
-          <div class="project-img-wrap">
-            <img src="Project/Bona Vista_Bayswater/images/Bona U2-1.jpg"
-                 alt="Bona Vista Bayswater" loading="lazy" />
+          <div class="project-img-wrap gallery-wrap">
+            <img src="Project/Bona Vista_Bayswater/images/Bona U2-1.jpg" alt="Bona Vista Bayswater" class="gallery-img active" loading="lazy" />
+            <img src="Project/Bona Vista_Bayswater/images/Bona U2-2.jpg" alt="Bona Vista Bayswater" class="gallery-img" loading="lazy" />
+            <img src="Project/Bona Vista_Bayswater/images/Bona U2-3.jpg" alt="Bona Vista Bayswater" class="gallery-img" loading="lazy" />
+            <div class="gallery-dots">
+              <span class="gdot active"></span>
+              <span class="gdot"></span>
+              <span class="gdot"></span>
+            </div>
           </div>
           <div class="project-info">
             <div>
@@ -1559,6 +1592,29 @@
     }, { threshold: 0.4 });
 
     document.querySelectorAll('.stat-number').forEach(el => cntObs.observe(el));
+
+    // ── PROJECT MINI GALLERY ──
+    document.querySelectorAll('.gallery-wrap').forEach(wrap => {
+      const imgs = wrap.querySelectorAll('.gallery-img');
+      const dots = wrap.querySelectorAll('.gdot');
+      if (imgs.length <= 1) return;
+      let idx = 0;
+
+      function showImg(n) {
+        imgs[idx].classList.remove('active');
+        dots[idx].classList.remove('active');
+        idx = (n + imgs.length) % imgs.length;
+        imgs[idx].classList.add('active');
+        dots[idx].classList.add('active');
+      }
+
+      dots.forEach((d, i) => d.addEventListener('click', e => {
+        e.stopPropagation(); showImg(i);
+      }));
+
+      // Auto-cycle every 4s
+      setInterval(() => showImg(idx + 1), 4000);
+    });
 
     // ── CONTACT FORM ──
     window.handleForm = e => {
