@@ -889,6 +889,11 @@
       <div class="slide-bg" style="background-image:url('https://images.squarespace-cdn.com/content/v1/5f26780bade9983a003077b1/1596544381540-003XPW6680M3IVWAHXDM/CW19010_Photo+-+2.jpg')"></div>
     </div>
 
+    <!-- Slide 5: Tate Ave Wantirna -->
+    <div class="slide" id="slide-4">
+      <div class="slide-bg" style="background-image:url('Project/Tate Ave_Wantirna/Image/image.jpg')"></div>
+    </div>
+
     <!-- Hero text (updates with slide) -->
     <div class="hero-content">
       <p class="hero-label" id="heroLabel">Residential · Preston VIC</p>
@@ -903,6 +908,7 @@
         <div class="dot" onclick="goSlide(1)"></div>
         <div class="dot" onclick="goSlide(2)"></div>
         <div class="dot" onclick="goSlide(3)"></div>
+        <div class="dot" onclick="goSlide(4)"></div>
       </div>
       <div class="hero-arrows">
         <button class="arrow-btn" onclick="prevSlide()" aria-label="Previous">
@@ -1033,6 +1039,25 @@
               <p class="proj-meta">Commercial · Office Interior</p>
               <h3 class="proj-name">Ellingworth<br>Boxhill</h3>
               <p class="proj-loc">Box Hill, VIC</p>
+            </div>
+            <a href="#contact" class="proj-link">
+              View Project
+              <span class="proj-link-arrow"></span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Row 5 -->
+        <div class="project-row" data-reveal>
+          <div class="project-img-wrap">
+            <img src="Project/Tate Ave_Wantirna/Image/image.jpg"
+                 alt="Tate Ave Wantirna" loading="lazy" />
+          </div>
+          <div class="project-info">
+            <div>
+              <p class="proj-meta">Residential · New Build</p>
+              <h3 class="proj-name">Tate Ave<br>Wantirna</h3>
+              <p class="proj-loc">Wantirna, VIC</p>
             </div>
             <a href="#contact" class="proj-link">
               View Project
@@ -1352,6 +1377,7 @@
       { label: 'Residential · Eltham VIC',     title: 'Orchard House\nEltham' },
       { label: 'Residential · Bayswater VIC',  title: 'Bona Vista\nBayswater' },
       { label: 'Commercial · Box Hill VIC',    title: 'Ellingworth\nBoxhill' },
+      { label: 'Residential · Wantirna VIC',   title: 'Tate Ave\nWantirna' },
     ];
     let current = 0;
     let timer;
