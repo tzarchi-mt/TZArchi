@@ -163,8 +163,25 @@
       font-size: 1.4rem; cursor: pointer; font-family: var(--sans);
       letter-spacing: .1em; font-weight: 300;
     }
+    .mob-cta {
+      display: inline-block;
+      margin-top: 2.5rem;
+      padding: .85rem 1.8rem;
+      border: 1px solid var(--white);
+      border-radius: 999px;
+      color: var(--white);
+      text-decoration: none;
+      font-size: .82rem;
+      font-weight: 500;
+      letter-spacing: .04em;
+      transition: background .3s, color .3s;
+    }
+    .mob-cta:hover, .mob-cta:active {
+      background: var(--white);
+      color: var(--ink);
+    }
     .mob-footer {
-      margin-top: 3rem;
+      margin-top: 2.2rem;
       font-size: .62rem; letter-spacing: .18em; text-transform: uppercase;
       color: var(--muted);
     }
@@ -866,6 +883,7 @@
       <li><a href="#services" onclick="closeMob()">Services</a></li>
       <li><a href="#contact"  onclick="closeMob()">Contact</a></li>
     </ul>
+    <a href="https://buildcheck.tzarchi.com.au" target="_blank" rel="noopener" class="mob-cta" onclick="closeMob()">Start Your Project</a>
     <div class="mob-footer">TZ Architecture Pty Ltd · Box Hill VIC 3128 · info@tzarchi.com.au</div>
   </div>
 
