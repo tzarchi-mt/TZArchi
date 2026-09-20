@@ -91,7 +91,7 @@
     .nav-logo {
       font-family: 'Avenir Next', 'Avenir', 'Nunito Sans', 'Century Gothic', sans-serif;
       font-weight: 600;
-      font-size: 1.56rem;
+      font-size: clamp(2.2rem, 3.4vw, 3.4rem);
       letter-spacing: .18em;
       text-transform: uppercase;
       color: var(--white);
@@ -678,6 +678,7 @@
     @media (max-width: 768px) {
       .nav-menu, .nav-cta { display: none; }
       .burger { display: flex; }
+      .nav-logo { font-size: 1.9rem; }
       .about-layout { grid-template-columns: 1fr; }
       .contact-layout { grid-template-columns: 1fr; }
       .form-row-2 { grid-template-columns: 1fr; }
