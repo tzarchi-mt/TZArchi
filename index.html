@@ -129,6 +129,8 @@
       border-color: var(--white);
     }
 
+    .nav-right { display: flex; align-items: center; gap: 1.1rem; }
+
     /* hamburger */
     .burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
     .burger span { display: block; width: 24px; height: 1px; background: var(--white); transition: all .3s; }
@@ -676,9 +678,16 @@
     }
 
     @media (max-width: 768px) {
-      .nav-menu, .nav-cta { display: none; }
+      .nav-menu { display: none; }
       .burger { display: flex; }
-      .nav-logo { font-size: 1.9rem; }
+      .nav-right { gap: .7rem; }
+      .nav-cta {
+        font-size: .58rem;
+        padding: .5rem .95rem;
+        letter-spacing: .08em;
+        white-space: nowrap;
+      }
+      .nav-logo { font-size: 1.6rem; }
       .about-layout { grid-template-columns: 1fr; }
       .contact-layout { grid-template-columns: 1fr; }
       .form-row-2 { grid-template-columns: 1fr; }
@@ -693,6 +702,9 @@
     @media (max-width: 480px) {
       .hero-title { font-size: 1.6rem; }
       .hero-arrows { display: none; }
+      .nav-logo { font-size: 1.3rem; }
+      .nav-cta { font-size: .52rem; padding: .42rem .78rem; }
+      .nav-right { gap: .55rem; }
     }
 
     /* ─────────────────────────────────────────
@@ -905,11 +917,13 @@
       </ul>
     </nav>
 
-    <a href="https://buildcheck.tzarchi.com.au" target="_blank" rel="noopener" class="nav-cta">Start Your Project</a>
+    <div class="nav-right">
+      <a href="https://buildcheck.tzarchi.com.au" target="_blank" rel="noopener" class="nav-cta">Start Your Project</a>
 
-    <button class="burger" onclick="openMob()" aria-label="Menu">
-      <span></span><span></span>
-    </button>
+      <button class="burger" onclick="openMob()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </header>
 
   <!-- ═══════════════════════════════════
