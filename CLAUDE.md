@@ -113,7 +113,7 @@ TZ ARCHI WEB/
 - **社交**：Instagram · Twitter · Pinterest
 
 ### CTA 按钮链接
-- **Start Your Project** → `https://buildcheck.tzarchi.com.au`（新标签页打开）
+- **Start Your Project** → `https://check.tzarchi.com.au`（新标签页打开）
 
 ### 现有项目（4个）
 
