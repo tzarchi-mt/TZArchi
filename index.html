@@ -873,6 +873,14 @@
       .stat:last-child { border-bottom: none; }
     }
   </style>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JE1J12KRJ5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JE1J12KRJ5', { linker: { domains: ['check.tzarchi.com.au'] } });
+  </script>
 </head>
 <body>
 
@@ -1648,6 +1656,31 @@
       s.style.display = 'block';
       s.textContent = 'Opening your email client… Thank you for reaching out.';
     };
+  })();
+  </script>
+
+  <script>
+  // ── GA4 EVENT TRACKING ──
+  (function () {
+    const track = (name, params) => { if (window.gtag) gtag('event', name, params || {}); };
+    document.addEventListener('click', e => {
+      const a = e.target.closest('a');
+      if (!a) return;
+      const href = a.getAttribute('href') || '';
+      if (href.includes('check.tzarchi.com.au')) track('start_project_click', { link_text: a.textContent.trim() });
+      else if (href.startsWith('tel:')) track('phone_click');
+      else if (href.startsWith('mailto:')) track('email_click');
+      else if (/View Project/i.test(a.textContent)) {
+        const row = a.closest('.project-row');
+        const t = row && row.querySelector('h2,h3,.project-name');
+        track('view_project_click', { project_name: t ? t.textContent.trim() : '' });
+      }
+    });
+    const f = document.querySelector('form[onsubmit*="handleForm"]');
+    if (f) f.addEventListener('submit', () => {
+      const ty = document.getElementById('ftype');
+      track('generate_lead', { form: 'contact', project_type: ty ? ty.value : '' });
+    });
   })();
   </script>
 
